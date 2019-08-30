@@ -6,12 +6,12 @@ const vm = new Vue({
         return {}
     },
     template: `<section class="list">
-        <button @click="copyData">拷贝</button>
+        <el-button type="primary" @click="copyData">拷贝</el-button>
     </section>`,
     methods: {
         copyData() {
             commonUtils.copyData('123')
-            alert('拷贝成功')
+            this.$message.success('拷贝成功')
         }
     }
 })
