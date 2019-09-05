@@ -2,7 +2,7 @@
     "name": "common-utils",
     "displayName": "common-utils",
     "description": "common utils from project",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "springleo",
     "repository": "https://github.com/lq782655835/common-utils",
     "icon": "vscode-logo.png",
@@ -38,7 +38,8 @@
         "onCommand:extension.timeView",
         "onCommand:extension.uppercaseFirst",
         "onCommand:extension.validEmail",
-        "onCommand:extension.validURL"
+        "onCommand:extension.validURL",
+        "onCommand:tools.json2ts"
     ],
     "main": "./extension.js",
     "contributes": {
@@ -126,6 +127,16 @@
             {
                 "command": "extension.validURL",
                 "title": "zz: validURL"
+            },
+            {
+                "command": "tools.json2ts",
+                "title": "zzt: json2ts"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "tools.json2ts",
+                "key": "ctrl+alt+V"
             }
         ]
     },
@@ -139,5 +150,10 @@
         "mocha": "^6.1.4",
         "typescript": "^3.3.1",
         "vscode-test": "^1.0.2"
+    },
+    "dependencies": {
+        "copy-paste": "^1.3.0",
+        "json2ts": "0.0.7",
+        "json2ts-core": "^0.1.1"
     }
 }

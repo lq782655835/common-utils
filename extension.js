@@ -1,22 +1,17 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 const commonUtils = require('./packages/dist/common-utils.common.js')
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+const copyPaste = require('copy-paste')
+const json2ts = require("json2ts");
+const json2tsNEI = require('json2ts-core/src/json2ts')
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "common-utils" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
+	// function command
 	let fnDisposableds = Object.keys(commonUtils).map(fnName => {
 		return vscode.commands.registerCommand(`extension.${fnName}`, function() {
 			const fnString = commonUtils[fnName].toString()
@@ -39,10 +34,45 @@ function activate(context) {
 		})
 	})
 	context.subscriptions.concat(fnDisposableds)
+
+	// ts convert tool
+	let clipboardJson2ts = vscode.commands.registerCommand("tools.json2ts", () => {
+        copyPaste.paste((error, content) => {
+            if (json2ts.isJson(content)) {
+				// json处理
+				vscode.window.setStatusBarMessage("json转换为ts类型中");
+				let result = json2ts.convert(content);
+				convertSuccessCallback(result)
+            } else {
+				if (/^(https?:)/.test(content)) {
+					// url网址处理
+					let workspacePath = vscode.workspace.rootPath
+					if (!workspacePath) {
+						return vscode.window.showErrorMessage("请在工作空间内执行命令");
+					}
+					let target = require('path').join(workspacePath, './TEMP_INTERFACES')
+					json2tsNEI({ url: content, target }) // 生成文件
+					vscode.window.showInformationMessage(`已生成接口文件，生成路径：${target}`);
+				} else {
+					vscode.window.showErrorMessage("请拷贝JSON对象或URL网址");
+				}
+			}
+			function convertSuccessCallback(result) {
+				vscode.window.activeTextEditor.edit((editBuilder) => {
+					let startLine = vscode.window.activeTextEditor.selection.start.line;
+					let lastCharIndex = vscode.window.activeTextEditor.document.lineAt(startLine).text.length;
+					let position = new vscode.Position(startLine, lastCharIndex);
+					editBuilder.insert(position, result);
+
+					vscode.window.setStatusBarMessage("Enjoy! :)");
+				});
+			}
+        });
+	});
+	context.subscriptions.push(clipboardJson2ts);
 }
 exports.activate = activate;
 
-// this method is called when your extension is deactivated
 function deactivate() {
 	vscode.window.showWarningMessage('common-utils: 已关闭!');
 }

@@ -36,7 +36,7 @@ To use the package in your module:
 3. 输入"**zz**"可以看到工具列表.
 4. 或者**输入关键词**, 比如"bytesToSize".
 
-![预览动画加载中...]('./vscode-animation.gif)
+![预览动画加载中...](./vscode-animation.gif)
 
 ## 工具函数
 `

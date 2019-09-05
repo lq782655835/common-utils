@@ -1,7 +1,7 @@
 /**
  * 通用格式转换
- * @param {*} formater
- * @param {*} t
+ * @param {*} formater 格式模板
+ * @param {*} t 支持number和date，默认是当前时间
  * expample: dateFormater('YYYY-MM-DD hh:mm:ss')
  */
 export function dateFormater(formater, t) {
@@ -42,10 +42,10 @@ export function timeView(val) {
   } else if (result / day > 1 && result / day < 7) {
     return Math.floor(result / day) + "天前";
   } else if (
-    this.switchTime(now, "YYYY") === this.switchTime(timeStamp, "YYYY")
+    dateFormater('YYYY', now) === dateFormater(timeStamp, 'YYYY')
   ) {
-    return this.switchTime(timeStamp, "MM月DD日");
+    return dateFormater("MM月DD日", timeStamp);
   } else {
-    return this.switchTime(timeStamp, "YYYY年MM月DD日");
+    return dateFormater("YYYY年MM月DD日", timeStamp);
   }
 }
