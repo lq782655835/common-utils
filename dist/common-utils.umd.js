@@ -345,12 +345,56 @@
 
     document.body.removeChild(inputDom); // 删除DOM
   };
+  /**
+   * This is just a simple version of deep copy
+   * Has a lot of edge cases bug
+   * If you want to use a perfect deep copy, use lodash's _.cloneDeep
+   * @param {Object} source
+   * @returns {Object}
+   */
+
+  function deepClone(source) {
+    if (!source && _typeof(source) !== "object") {
+      throw new Error("error arguments", "deepClone");
+    }
+
+    var targetObj = source.constructor === Array ? [] : {};
+    Object.keys(source).forEach(function (keys) {
+      if (source[keys] && _typeof(source[keys]) === "object") {
+        targetObj[keys] = deepClone(source[keys]);
+      } else {
+        targetObj[keys] = source[keys];
+      }
+    });
+    return targetObj;
+  } // 深度优先算法 - 递归
+
+  function flatDeep(arr) {
+    return arr.reduce(function (pre, val) {
+      return pre.concat(Array.isArray(val) ? flatDeep(val) : val);
+    }, []);
+  } // 防抖
+
+  function debounce(fn, wait) {
+    var tId;
+    return function () {
+      var that = this;
+      var args = arguments;
+      tId && clearTimeout(tId);
+      tId = setTimeout(function () {
+        fn.apply(that, args);
+      }, wait);
+    };
+  }
 
   exports.bytesToSize = bytesToSize;
   exports.camelize = camelize;
   exports.copyData = copyData;
   exports.dateFormater = dateFormater;
+  exports.debounce = debounce;
+  exports.deepClone = deepClone;
   exports.download = download;
+  exports.flatDeep = flatDeep;
   exports.getQueryParam = getQueryParam;
   exports.getQueryValueByName = getQueryValueByName;
   exports.hyphenate = hyphenate;

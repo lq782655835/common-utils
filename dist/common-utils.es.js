@@ -339,6 +339,47 @@ var copyData = function copyData(value) {
 
   document.body.removeChild(inputDom); // 删除DOM
 };
+/**
+ * This is just a simple version of deep copy
+ * Has a lot of edge cases bug
+ * If you want to use a perfect deep copy, use lodash's _.cloneDeep
+ * @param {Object} source
+ * @returns {Object}
+ */
 
-export { bytesToSize, camelize, copyData, dateFormater, download, getQueryParam, getQueryValueByName, hyphenate, isArray, isExternal, isObject, isPlainObject, numberFormatter, timeView, uppercaseFirst, validEmail, validURL };
+function deepClone(source) {
+  if (!source && _typeof(source) !== "object") {
+    throw new Error("error arguments", "deepClone");
+  }
+
+  var targetObj = source.constructor === Array ? [] : {};
+  Object.keys(source).forEach(function (keys) {
+    if (source[keys] && _typeof(source[keys]) === "object") {
+      targetObj[keys] = deepClone(source[keys]);
+    } else {
+      targetObj[keys] = source[keys];
+    }
+  });
+  return targetObj;
+} // 深度优先算法 - 递归
+
+function flatDeep(arr) {
+  return arr.reduce(function (pre, val) {
+    return pre.concat(Array.isArray(val) ? flatDeep(val) : val);
+  }, []);
+} // 防抖
+
+function debounce(fn, wait) {
+  var tId;
+  return function () {
+    var that = this;
+    var args = arguments;
+    tId && clearTimeout(tId);
+    tId = setTimeout(function () {
+      fn.apply(that, args);
+    }, wait);
+  };
+}
+
+export { bytesToSize, camelize, copyData, dateFormater, debounce, deepClone, download, flatDeep, getQueryParam, getQueryValueByName, hyphenate, isArray, isExternal, isObject, isPlainObject, numberFormatter, timeView, uppercaseFirst, validEmail, validURL };
 //# sourceMappingURL=common-utils.es.js.map
