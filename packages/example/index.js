@@ -10,8 +10,8 @@ const vm = new Vue({
     </section>`,
     methods: {
         copyData(fnName) {
-            commonUtils.copyData(fnName)
-            this.$message.success('拷贝成功')
+            commonUtils.copyData(commonUtils[fnName].toString())
+            this.$message.success('拷贝函数成功')
         }
     }
 })

@@ -2,14 +2,22 @@
     "name": "common-utils",
     "displayName": "common-utils",
     "description": "common utils from project",
-    "version": "0.0.1",
+	"version": "0.0.2",
+	"publisher": "springleo",
+	"repository": "https://github.com/lq782655835/common-utils",
+	"icon": "./vscode-logo.png",
     "engines": {
         "vscode": "^1.37.0"
     },
     "categories": [
         "Other"
     ],
+    "scripts": {
+        "build": "node ./scripts/genCommond.js && vsce package patch",
+        "test": "node ./test/runTest.js"
+    },
     "activationEvents": [
+        "onCommand:extension.EventEmitter",
         "onCommand:extension.bytesToSize",
         "onCommand:extension.camelize",
         "onCommand:extension.copyData",
@@ -34,6 +42,10 @@
     "main": "./extension.js",
     "contributes": {
         "commands": [
+            {
+                "command": "extension.EventEmitter",
+                "title": "zz: EventEmitter"
+            },
             {
                 "command": "extension.bytesToSize",
                 "title": "zz: bytesToSize"
@@ -115,9 +127,6 @@
                 "title": "zz: validURL"
             }
         ]
-    },
-    "scripts": {
-        "test": "node ./test/runTest.js"
     },
     "devDependencies": {
         "@types/glob": "^7.1.1",
