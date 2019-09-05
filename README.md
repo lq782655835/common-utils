@@ -1,4 +1,4 @@
-# common-utils [![](https://badgen.net/vs-marketplace/v/springleo.common-utils)](https://marketplace.visualstudio.com/items?itemName=springleo.common-utils) [![](https://badgen.net/vs-marketplace/i/springleo.common-utils)](https://marketplace.visualstudio.com/items?itemName=springleo.common-utils) [![](https://badgen.net/vs-marketplace/d/springleo.common-utils)](https://marketplace.visualstudio.com/items?itemName=springleo.common-utils) ![](https://img.shields.io/badge/license-MIT-F44336.svg)
+# common-utils [![](https://badgen.net/vs-marketplace/v/springleo.common-utils)](https://marketplace.visualstudio.com/items?itemName=springleo.common-utils) [![](https://badgen.net/vs-marketplace/i/springleo.common-utils)](https://marketplace.visualstudio.com/items?itemName=springleo.common-utils) ![](https://img.shields.io/badge/license-MIT-F44336.svg)
 常用工具函数，支持vscode扩展插件
 
 ## :rocket:图形界面
@@ -20,6 +20,8 @@ To use the package in your module:
 2. 安装完毕后按**F1**(或者ctrl+shift+p).
 3. 输入"**zz**"可以看到工具列表.
 4. 或者**输入关键词**, 比如"bytesToSize".
+
+![预览动画加载中...]('./vscode-animation.gif)
 
 ## 工具函数
 

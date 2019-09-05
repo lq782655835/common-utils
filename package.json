@@ -2,10 +2,10 @@
     "name": "common-utils",
     "displayName": "common-utils",
     "description": "common utils from project",
-	"version": "0.0.2",
-	"publisher": "springleo",
-	"repository": "https://github.com/lq782655835/common-utils",
-	"icon": "./vscode-logo.png",
+    "version": "0.0.2",
+    "publisher": "springleo",
+    "repository": "https://github.com/lq782655835/common-utils",
+    "icon": "vscode-logo.png",
     "engines": {
         "vscode": "^1.37.0"
     },
@@ -13,7 +13,8 @@
         "Other"
     ],
     "scripts": {
-        "build": "node ./scripts/genCommond.js && vsce package patch",
+        "build:md": "node ./scripts/md.js",
+        "build": "node ./scripts/genCommond.js && vsce publish",
         "test": "node ./test/runTest.js"
     },
     "activationEvents": [
