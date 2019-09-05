@@ -1,0 +1,56 @@
+{
+  "name": "ai-common-utils",
+  "version": "0.0.1",
+  "description": "common utils for project",
+  "main": "dist/common-utils.common.js",
+  "module": "dist/common-utils.es.js",
+  "browser": "dist/common-utils.umd.js",
+  "scripts": {
+    "dev": "rollup -c --watch",
+    "build": "rollup -c",
+    "demo": "node scripts/demo.js",
+    "test": "jest",
+    "format": "prettier --write \"./src/**/*.{js,ts,vue,json}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format && git add ."
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lq782655835/common-utils.git"
+  },
+  "keywords": [
+    "util"
+  ],
+  "author": "springleo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lq782655835/common-utils/issues"
+  },
+  "homepage": "https://github.com/lq782655835/common-utils#readme",
+  "dependencies": {
+    "jest": "^24.8.0",
+    "rollup": "^1.20.3",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "jest": {
+    "testMatch": [
+      "**/test/**/*.js?(x)"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "babel-jest": "^24.8.0",
+    "chalk": "^2.4.2",
+    "gh-pages": "^2.1.1",
+    "husky": "^3.0.3",
+    "prettier": "^1.18.2",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-uglify": "^6.0.2",
+    "shelljs": "^0.8.3"
+  }
+}

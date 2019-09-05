@@ -1,0 +1,133 @@
+{
+    "name": "common-utils",
+    "displayName": "common-utils",
+    "description": "common utils from project",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.37.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.bytesToSize",
+        "onCommand:extension.camelize",
+        "onCommand:extension.copyData",
+        "onCommand:extension.dateFormater",
+        "onCommand:extension.debounce",
+        "onCommand:extension.deepClone",
+        "onCommand:extension.download",
+        "onCommand:extension.flatDeep",
+        "onCommand:extension.getQueryParam",
+        "onCommand:extension.getQueryValueByName",
+        "onCommand:extension.hyphenate",
+        "onCommand:extension.isArray",
+        "onCommand:extension.isExternal",
+        "onCommand:extension.isObject",
+        "onCommand:extension.isPlainObject",
+        "onCommand:extension.numberFormatter",
+        "onCommand:extension.timeView",
+        "onCommand:extension.uppercaseFirst",
+        "onCommand:extension.validEmail",
+        "onCommand:extension.validURL"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.bytesToSize",
+                "title": "zz: bytesToSize"
+            },
+            {
+                "command": "extension.camelize",
+                "title": "zz: camelize"
+            },
+            {
+                "command": "extension.copyData",
+                "title": "zz: copyData"
+            },
+            {
+                "command": "extension.dateFormater",
+                "title": "zz: dateFormater"
+            },
+            {
+                "command": "extension.debounce",
+                "title": "zz: debounce"
+            },
+            {
+                "command": "extension.deepClone",
+                "title": "zz: deepClone"
+            },
+            {
+                "command": "extension.download",
+                "title": "zz: download"
+            },
+            {
+                "command": "extension.flatDeep",
+                "title": "zz: flatDeep"
+            },
+            {
+                "command": "extension.getQueryParam",
+                "title": "zz: getQueryParam"
+            },
+            {
+                "command": "extension.getQueryValueByName",
+                "title": "zz: getQueryValueByName"
+            },
+            {
+                "command": "extension.hyphenate",
+                "title": "zz: hyphenate"
+            },
+            {
+                "command": "extension.isArray",
+                "title": "zz: isArray"
+            },
+            {
+                "command": "extension.isExternal",
+                "title": "zz: isExternal"
+            },
+            {
+                "command": "extension.isObject",
+                "title": "zz: isObject"
+            },
+            {
+                "command": "extension.isPlainObject",
+                "title": "zz: isPlainObject"
+            },
+            {
+                "command": "extension.numberFormatter",
+                "title": "zz: numberFormatter"
+            },
+            {
+                "command": "extension.timeView",
+                "title": "zz: timeView"
+            },
+            {
+                "command": "extension.uppercaseFirst",
+                "title": "zz: uppercaseFirst"
+            },
+            {
+                "command": "extension.validEmail",
+                "title": "zz: validEmail"
+            },
+            {
+                "command": "extension.validURL",
+                "title": "zz: validURL"
+            }
+        ]
+    },
+    "scripts": {
+        "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/glob": "^7.1.1",
+        "@types/mocha": "^5.2.6",
+        "@types/node": "^10.12.21",
+        "@types/vscode": "^1.37.0",
+        "eslint": "^5.13.0",
+        "glob": "^7.1.4",
+        "mocha": "^6.1.4",
+        "typescript": "^3.3.1",
+        "vscode-test": "^1.0.2"
+    }
+}
