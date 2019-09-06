@@ -174,6 +174,86 @@ module.exports = __webpack_require__("56d7");
 
 /***/ }),
 
+/***/ "3a39":
+/***/ (function(module, exports) {
+
+module.exports = [{
+  fn: 'bytesToSize',
+  title: '通用字节转换',
+  example: [1024]
+}, {
+  fn: 'dateFormater',
+  title: '通用日期格式转换',
+  example: ['YYYY年MM月DD日 hh:mm:ss']
+}, {
+  fn: 'timeView',
+  title: '日期展示',
+  example: ['1567738721718']
+}, {
+  fn: 'copyData',
+  title: '拷贝字符',
+  example: ['拷贝后可粘贴查看']
+}, {
+  fn: 'getExplorerInfo',
+  title: '获取浏览器信息',
+  example: []
+}, {
+  fn: 'isPCBroswer',
+  title: '是否为PC端浏览器模式',
+  example: []
+}, {
+  fn: 'toFullScreen',
+  title: '全屏',
+  example: []
+}, {
+  fn: 'exitFullScreen',
+  title: '退出全屏',
+  example: []
+}, {
+  fn: 'disabledBrowserEvent',
+  title: '禁用右键',
+  example: ['contextmenu']
+}, {
+  fn: 'random',
+  title: '指定范围随机数',
+  example: [5, 99]
+}, // {
+//     fn: 'downloadImage',
+//     title: '下载',
+//     example: ['https://github.com/lq782655835/common-utils/blob/master/vscode-logo.png']
+// },
+{
+  fn: 'validURL',
+  title: '网址正则',
+  example: ['http://www.baidu.com']
+}, {
+  fn: 'validEmail',
+  title: '邮箱正则',
+  example: ['123@163.com']
+}, {
+  fn: 'camelize',
+  title: '横线转驼峰命名',
+  example: ['ab-cd-ef']
+}, {
+  fn: 'hyphenate',
+  title: '驼峰转横线命名',
+  example: ['abCdEf']
+}, {
+  fn: 'uppercaseFirst',
+  title: '首字母大写',
+  example: ['abCdEf']
+}, {
+  fn: 'getQueryValueByName',
+  title: '获取location指定值',
+  example: ['a']
+}, {
+  fn: 'getQueryParam',
+  title: '获取location所有参数',
+  example: []
+}];
+
+/***/ }),
+
 /***/ "56d7":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -188,15 +268,28 @@ __webpack_require__.d(common_utils_es_namespaceObject, "copyData", function() { 
 __webpack_require__.d(common_utils_es_namespaceObject, "dateFormater", function() { return dateFormater; });
 __webpack_require__.d(common_utils_es_namespaceObject, "debounce", function() { return debounce; });
 __webpack_require__.d(common_utils_es_namespaceObject, "deepClone", function() { return deepClone; });
+__webpack_require__.d(common_utils_es_namespaceObject, "disabledBrowserEvent", function() { return disabledBrowserEvent; });
+__webpack_require__.d(common_utils_es_namespaceObject, "disabledKeyEvent", function() { return disabledKeyEvent; });
 __webpack_require__.d(common_utils_es_namespaceObject, "downloadImage", function() { return downloadImage; });
+__webpack_require__.d(common_utils_es_namespaceObject, "exitFullScreen", function() { return exitFullScreen; });
 __webpack_require__.d(common_utils_es_namespaceObject, "flatDeep", function() { return flatDeep; });
+__webpack_require__.d(common_utils_es_namespaceObject, "getExplorerInfo", function() { return getExplorerInfo; });
 __webpack_require__.d(common_utils_es_namespaceObject, "getQueryParam", function() { return getQueryParam; });
 __webpack_require__.d(common_utils_es_namespaceObject, "getQueryValueByName", function() { return getQueryValueByName; });
+__webpack_require__.d(common_utils_es_namespaceObject, "getRawType", function() { return getRawType; });
 __webpack_require__.d(common_utils_es_namespaceObject, "hyphenate", function() { return hyphenate; });
 __webpack_require__.d(common_utils_es_namespaceObject, "isArray", function() { return isArray; });
+__webpack_require__.d(common_utils_es_namespaceObject, "isDate", function() { return isDate; });
+__webpack_require__.d(common_utils_es_namespaceObject, "isFunction", function() { return isFunction; });
 __webpack_require__.d(common_utils_es_namespaceObject, "isObject", function() { return isObject; });
+__webpack_require__.d(common_utils_es_namespaceObject, "isPCBroswer", function() { return isPCBroswer; });
 __webpack_require__.d(common_utils_es_namespaceObject, "isPlainObject", function() { return isPlainObject; });
+__webpack_require__.d(common_utils_es_namespaceObject, "isRegExp", function() { return isRegExp; });
+__webpack_require__.d(common_utils_es_namespaceObject, "max", function() { return max; });
+__webpack_require__.d(common_utils_es_namespaceObject, "min", function() { return min; });
+__webpack_require__.d(common_utils_es_namespaceObject, "random", function() { return random; });
 __webpack_require__.d(common_utils_es_namespaceObject, "timeView", function() { return timeView; });
+__webpack_require__.d(common_utils_es_namespaceObject, "toFullScreen", function() { return toFullScreen; });
 __webpack_require__.d(common_utils_es_namespaceObject, "uppercaseFirst", function() { return uppercaseFirst; });
 __webpack_require__.d(common_utils_es_namespaceObject, "validEmail", function() { return validEmail; });
 __webpack_require__.d(common_utils_es_namespaceObject, "validURL", function() { return validURL; });
@@ -216,16 +309,16 @@ var es7_promise_finally = __webpack_require__("097d");
 // EXTERNAL MODULE: ./node_modules/vue/dist/vue.runtime.esm.js
 var vue_runtime_esm = __webpack_require__("2b0e");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2d0efb1c-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/App.vue?vue&type=template&id=f47b3066&
-var Appvue_type_template_id_f47b3066_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_c('section',{staticClass:"list"},[_c('ul',{staticClass:"list"},_vm._l((_vm.mapping),function(ref,index){
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7df1fffb-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/App.vue?vue&type=template&id=17373125&
+var Appvue_type_template_id_17373125_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_vm._m(0),_c('section',{staticClass:"list"},[_c('ul',{staticClass:"list"},_vm._l((_vm.mapping),function(ref,index){
 var fn = ref.fn;
 var title = ref.title;
 var example = ref.example;
-return _c('li',{key:fn},[_c('i',{staticClass:"border"}),_c('h2',[_vm._v(_vm._s(title))]),_vm._v("\n        输入参数："),_c('el-input',{model:{value:(_vm.list[index].value),callback:function ($$v) {_vm.$set(_vm.list[index], "value", $$v)},expression:"list[index].value"}}),_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){return _vm.exec(fn, index)}}},[_vm._v(_vm._s(fn))]),_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){return _vm.copy(fn)}}},[_vm._v("拷贝")]),_c('br'),(_vm.list[index].result)?[_vm._v("\n          输出结果："),_c('span',[_vm._v(_vm._s(_vm.list[index].result))])]:_vm._e(),_c('pre',[_vm._v("          "),_c('code',{staticClass:"javascript"},[_vm._v("\n            "+_vm._s(_vm.list[index].code)+"\n          ")]),_vm._v("\n        ")])],2)}),0)])])}
-var staticRenderFns = []
+return _c('li',{key:fn},[_c('i',{staticClass:"border"}),_c('h2',[_vm._v(_vm._s(title))]),_vm._v("\n        输入参数："),_c('el-input',{attrs:{"disabled":_vm.list[index].disabled},model:{value:(_vm.list[index].value),callback:function ($$v) {_vm.$set(_vm.list[index], "value", $$v)},expression:"list[index].value"}}),_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){return _vm.exec(fn, index)}}},[_vm._v(_vm._s(fn))]),_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){return _vm.copy(fn)}}},[_vm._v("拷贝函数")]),_c('br'),(_vm.list[index].result)?[_vm._v("\n          输出结果："),_c('span',[_vm._v(_vm._s(_vm.list[index].result))])]:_vm._e(),_c('pre',[_vm._v("          "),_c('code',{staticClass:"javascript"},[_vm._v("\n            "+_vm._s(_vm.list[index].code)+"\n          ")]),_vm._v("\n        ")])],2)}),0)])])}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('header',[_c('img',{staticClass:"logo",attrs:{"src":__webpack_require__("8c42")}}),_c('h1',{staticClass:"title"},[_vm._v("常用函数大全")])])}]
 
 
-// CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=f47b3066&
+// CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=17373125&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.to-string.js
 var es6_regexp_to_string = __webpack_require__("6b54");
@@ -250,9 +343,12 @@ var javascript_default = /*#__PURE__*/__webpack_require__.n(javascript);
 // EXTERNAL MODULE: ./node_modules/highlight.js/styles/github.css
 var github = __webpack_require__("2c43");
 
-// EXTERNAL MODULE: ../MAPPING.js
-var MAPPING = __webpack_require__("9856");
+// EXTERNAL MODULE: ./src/MAPPING.js
+var MAPPING = __webpack_require__("3a39");
 var MAPPING_default = /*#__PURE__*/__webpack_require__.n(MAPPING);
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
+var es6_number_constructor = __webpack_require__("c5f6");
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.constructor.js
 var es6_regexp_constructor = __webpack_require__("3b2b");
@@ -285,6 +381,7 @@ var es6_symbol = __webpack_require__("8a81");
 var es6_regexp_replace = __webpack_require__("a481");
 
 // CONCATENATED MODULE: ../dist/common-utils.es.js
+
 
 
 
@@ -649,17 +746,35 @@ function isPlainObject(obj) {
   return Object.prototype.toString.call(obj) === "[object Object]";
 }
 /**
+ * 是否是数组
  * @param {Array} arg
  * @returns {Boolean}
  */
 
 
 function isArray(arg) {
-  if (typeof Array.isArray === "undefined") {
-    return Object.prototype.toString.call(arg) === "[object Array]";
-  }
-
+  Array.isArray = Array.isArray || Object.prototype.toString.call(arg) === "[object Array]";
   return Array.isArray(arg);
+} // 获取数据类型，返回结果为 Number、String、Object、Array等
+
+
+function getRawType(value) {
+  return Object.prototype.toString.call(value).slice(8, -1);
+} // 判断数据是不是时间对象
+
+
+function isDate(value) {
+  return Object.prototype.toString.call(value) === "[object Date]";
+} // 判断数据是不是正则对象
+
+
+function isRegExp(value) {
+  return Object.prototype.toString.call(value) === "[object RegExp]";
+} // 判断数据是不是函数
+
+
+function isFunction(value) {
+  return Object.prototype.toString.call(value) === "[object Function]";
 }
 /**
  * 获取url query参数值
@@ -764,6 +879,112 @@ function debounce(fn, wait) {
       fn.apply(that, args);
     }, wait);
   };
+} // https://github.com/hfhan/tools/blob/master/util.js
+// 获取浏览器信息
+
+
+function getExplorerInfo() {
+  var t = navigator.userAgent.toLowerCase();
+  return 0 <= t.indexOf("msie") ? {
+    //ie < 11
+    type: "IE",
+    version: Number(t.match(/msie ([\d]+)/)[1])
+  } : !!t.match(/trident\/.+?rv:(([\d.]+))/) ? {
+    // ie 11
+    type: "IE",
+    version: 11
+  } : 0 <= t.indexOf("edge") ? {
+    type: "Edge",
+    version: Number(t.match(/edge\/([\d]+)/)[1])
+  } : 0 <= t.indexOf("firefox") ? {
+    type: "Firefox",
+    version: Number(t.match(/firefox\/([\d]+)/)[1])
+  } : 0 <= t.indexOf("chrome") ? {
+    type: "Chrome",
+    version: Number(t.match(/chrome\/([\d]+)/)[1])
+  } : 0 <= t.indexOf("opera") ? {
+    type: "Opera",
+    version: Number(t.match(/opera.([\d]+)/)[1])
+  } : 0 <= t.indexOf("Safari") ? {
+    type: "Safari",
+    version: Number(t.match(/version\/([\d]+)/)[1])
+  } : {
+    type: t,
+    version: -1
+  };
+} // 检测是否为PC端浏览器模式
+
+
+function isPCBroswer() {
+  var e = navigator.userAgent.toLowerCase(),
+      t = "ipad" == e.match(/ipad/i),
+      i = "iphone" == e.match(/iphone/i),
+      r = "midp" == e.match(/midp/i),
+      n = "rv:1.2.3.4" == e.match(/rv:1.2.3.4/i),
+      a = "ucweb" == e.match(/ucweb/i),
+      o = "android" == e.match(/android/i),
+      s = "windows ce" == e.match(/windows ce/i),
+      l = "windows mobile" == e.match(/windows mobile/i);
+  return !(t || i || r || n || a || o || s || l);
+} // 全屏
+
+
+function toFullScreen() {
+  var elem = document.body;
+  elem.webkitRequestFullScreen ? elem.webkitRequestFullScreen() : elem.mozRequestFullScreen ? elem.mozRequestFullScreen() : elem.msRequestFullscreen ? elem.msRequestFullscreen() : elem.requestFullScreen ? elem.requestFullScreen() : alert("浏览器不支持全屏");
+} // 退出全屏
+
+
+function exitFullScreen() {
+  var elem = document.body;
+  elem.webkitCancelFullScreen ? elem.webkitCancelFullScreen() : elem.mozCancelFullScreen ? elem.mozCancelFullScreen() : elem.cancelFullScreen ? elem.cancelFullScreen() : elem.msExitFullscreen ? elem.msExitFullscreen() : elem.exitFullscreen ? elem.exitFullscreen() : alert("切换失败,可尝试Esc退出");
+} // 'contextmenu', 'selectstart', 'copy' 禁止右键、选择、复制
+
+
+function disabledBrowserEvent(ev) {
+  document.addEventListener(ev, function (event) {
+    return event.returnValue = false;
+  });
+}
+
+function disabledKeyEvent() {
+  document.addEventListener("keydown", function (event) {
+    return !(112 == event.keyCode || //F1
+    123 == event.keyCode || //F12
+    event.ctrlKey && 82 == event.keyCode || //ctrl + R
+    event.ctrlKey && 78 == event.keyCode || //ctrl + N
+    event.shiftKey && 121 == event.keyCode || //shift + F10
+    event.altKey && 115 == event.keyCode || //alt + F4
+    "A" == event.srcElement.tagName && event.shiftKey) || (event.returnValue = false) //shift + 点击a标签
+    ;
+  });
+} // 数组中最大值
+
+
+function max(arr) {
+  arr = arr.filter(function (item) {
+    return !_isNaN(item);
+  });
+  return arr.length ? Math.max.apply(null, arr) : undefined;
+} // 数组中最小值
+
+
+function min(arr) {
+  arr = arr.filter(function (item) {
+    return !_isNaN(item);
+  });
+  return arr.length ? Math.min.apply(null, arr) : undefined;
+} // 随机数
+
+
+function random(lower, upper) {
+  lower = +lower || 0;
+  upper = +upper || 0;
+  return Math.random() * (upper - lower) + lower;
+}
+
+function _isNaN(v) {
+  return !(typeof v === "string" || typeof v === "number") || isNaN(v);
 }
 
 
@@ -772,6 +993,11 @@ function debounce(fn, wait) {
 
 
 
+//
+//
+//
+//
+//
 //
 //
 //
@@ -815,13 +1041,13 @@ highlight_default.a.registerLanguage('javascript', javascript_default.a);
         return {
           value: example.join(','),
           result: '',
+          disabled: example.length === 0,
           code: common_utils_es_namespaceObject[fn]
         };
       })
     };
   },
   mounted: function mounted() {
-    console.log(copyData);
     highlight_default.a.initHighlightingOnLoad();
   },
   methods: {
@@ -829,6 +1055,10 @@ highlight_default.a.registerLanguage('javascript', javascript_default.a);
       var params = this.list[index].value.split(',');
       var result = common_utils_es_namespaceObject[fnName].apply(common_utils_es_namespaceObject, Object(toConsumableArray["a" /* default */])(params));
       this.list[index].result = result;
+      this.$notify.success({
+        title: "".concat(fnName),
+        message: '执行成功'
+      });
     },
     copy: function copy(fnName) {
       copyData(common_utils_es_namespaceObject[fnName].toString());
@@ -855,7 +1085,7 @@ var componentNormalizer = __webpack_require__("2877");
 
 var component = Object(componentNormalizer["a" /* default */])(
   src_Appvue_type_script_lang_js_,
-  Appvue_type_template_id_f47b3066_render,
+  Appvue_type_template_id_17373125_render,
   staticRenderFns,
   false,
   null,
@@ -898,49 +1128,12 @@ new vue_runtime_esm["default"]({
 
 /***/ }),
 
-/***/ "9856":
-/***/ (function(module, exports) {
+/***/ "8c42":
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = [{
-  fn: 'bytesToSize',
-  title: '通用字节转换',
-  example: [1024]
-}, {
-  fn: 'dateFormater',
-  title: '通用日期格式转换',
-  example: ['YYYY年MM月DD日 hh:mm:ss']
-}, {
-  fn: 'timeView',
-  title: '日期展示',
-  example: ['1567738721718']
-}, {
-  fn: 'getQueryValueByName',
-  title: '获取location指定值',
-  example: ['a']
-}, {
-  fn: 'getQueryParam',
-  title: '获取location所有参数',
-  example: []
-}, {
-  fn: 'copyData',
-  title: '拷贝字符',
-  example: ['拷贝后可粘贴查看']
-}, // {
-//     fn: 'downloadImage',
-//     title: '下载',
-//     example: ['https://github.com/lq782655835/common-utils/blob/master/vscode-logo.png']
-// },
-{
-  fn: 'validURL',
-  title: '网址正则',
-  example: ['http://www.baidu.com']
-}, {
-  fn: 'validEmail',
-  title: '邮箱正则',
-  example: ['123@163.com']
-}];
+module.exports = __webpack_require__.p + "img/vscode-logo.aea790b0.png";
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=app.b375aaf2.js.map
+//# sourceMappingURL=app.20909f23.js.map
