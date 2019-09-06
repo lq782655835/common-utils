@@ -2,7 +2,7 @@
     "name": "common-utils",
     "displayName": "common-utils",
     "description": "common utils from project",
-    "version": "0.0.3",
+    "version": "0.0.5",
     "publisher": "springleo",
     "repository": "https://github.com/lq782655835/common-utils",
     "icon": "vscode-logo.png",
@@ -13,8 +13,10 @@
         "Other"
     ],
     "scripts": {
+        "build:lib": "cd packages && npm run build",
+        "build:demo": "cd packages/example && npm run demo",
         "build:md": "node ./scripts/md.js",
-        "build": "node ./scripts/genCommond.js && vsce publish",
+        "build:vscode": "node ./scripts/genCommond.js && vsce publish",
         "test": "node ./test/runTest.js"
     },
     "activationEvents": [
@@ -25,17 +27,28 @@
         "onCommand:extension.dateFormater",
         "onCommand:extension.debounce",
         "onCommand:extension.deepClone",
-        "onCommand:extension.download",
+        "onCommand:extension.disabledBrowserEvent",
+        "onCommand:extension.disabledKeyEvent",
+        "onCommand:extension.downloadImage",
+        "onCommand:extension.exitFullScreen",
         "onCommand:extension.flatDeep",
+        "onCommand:extension.getExplorerInfo",
         "onCommand:extension.getQueryParam",
         "onCommand:extension.getQueryValueByName",
+        "onCommand:extension.getRawType",
         "onCommand:extension.hyphenate",
         "onCommand:extension.isArray",
-        "onCommand:extension.isExternal",
+        "onCommand:extension.isDate",
+        "onCommand:extension.isFunction",
         "onCommand:extension.isObject",
+        "onCommand:extension.isPCBroswer",
         "onCommand:extension.isPlainObject",
-        "onCommand:extension.numberFormatter",
+        "onCommand:extension.isRegExp",
+        "onCommand:extension.max",
+        "onCommand:extension.min",
+        "onCommand:extension.random",
         "onCommand:extension.timeView",
+        "onCommand:extension.toFullScreen",
         "onCommand:extension.uppercaseFirst",
         "onCommand:extension.validEmail",
         "onCommand:extension.validURL",
@@ -73,12 +86,28 @@
                 "title": "zz: deepClone"
             },
             {
-                "command": "extension.download",
-                "title": "zz: download"
+                "command": "extension.disabledBrowserEvent",
+                "title": "zz: disabledBrowserEvent"
+            },
+            {
+                "command": "extension.disabledKeyEvent",
+                "title": "zz: disabledKeyEvent"
+            },
+            {
+                "command": "extension.downloadImage",
+                "title": "zz: downloadImage"
+            },
+            {
+                "command": "extension.exitFullScreen",
+                "title": "zz: exitFullScreen"
             },
             {
                 "command": "extension.flatDeep",
                 "title": "zz: flatDeep"
+            },
+            {
+                "command": "extension.getExplorerInfo",
+                "title": "zz: getExplorerInfo"
             },
             {
                 "command": "extension.getQueryParam",
@@ -89,6 +118,10 @@
                 "title": "zz: getQueryValueByName"
             },
             {
+                "command": "extension.getRawType",
+                "title": "zz: getRawType"
+            },
+            {
                 "command": "extension.hyphenate",
                 "title": "zz: hyphenate"
             },
@@ -97,24 +130,48 @@
                 "title": "zz: isArray"
             },
             {
-                "command": "extension.isExternal",
-                "title": "zz: isExternal"
+                "command": "extension.isDate",
+                "title": "zz: isDate"
+            },
+            {
+                "command": "extension.isFunction",
+                "title": "zz: isFunction"
             },
             {
                 "command": "extension.isObject",
                 "title": "zz: isObject"
             },
             {
+                "command": "extension.isPCBroswer",
+                "title": "zz: isPCBroswer"
+            },
+            {
                 "command": "extension.isPlainObject",
                 "title": "zz: isPlainObject"
             },
             {
-                "command": "extension.numberFormatter",
-                "title": "zz: numberFormatter"
+                "command": "extension.isRegExp",
+                "title": "zz: isRegExp"
+            },
+            {
+                "command": "extension.max",
+                "title": "zz: max"
+            },
+            {
+                "command": "extension.min",
+                "title": "zz: min"
+            },
+            {
+                "command": "extension.random",
+                "title": "zz: random"
             },
             {
                 "command": "extension.timeView",
                 "title": "zz: timeView"
+            },
+            {
+                "command": "extension.toFullScreen",
+                "title": "zz: toFullScreen"
             },
             {
                 "command": "extension.uppercaseFirst",

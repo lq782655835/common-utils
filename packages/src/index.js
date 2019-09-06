@@ -6,3 +6,5 @@ export * from "./js/string";
 export * from "./js/type";
 export * from "./js/url";
 export * from "./js/utils";
+export * from "./js/broswer";
+export * from "./js/math";

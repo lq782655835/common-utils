@@ -3,7 +3,7 @@
 
 ## :rocket:图形界面
 
-https://lq782655835.github.io/common-utils/example/
+https://lq782655835.github.io/common-utils
 
 ## npm插件
 
@@ -108,45 +108,53 @@ function deepClone(source) {
 }
 ```
 
-### download
+### disabledBrowserEvent
 ```javascript
-function download(url, params) {
-  var isImage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+function disabledBrowserEvent(ev) {
+  document.addEventListener(ev, function (event) {
+    return event.returnValue = false;
+  });
+}
+```
 
-  if (!url) {
-    throw new Error("url not allow empty");
-  }
+### disabledKeyEvent
+```javascript
+function disabledKeyEvent() {
+  document.addEventListener("keydown", function (event) {
+    return !(112 == event.keyCode || //F1
+    123 == event.keyCode || //F12
+    event.ctrlKey && 82 == event.keyCode || //ctrl + R
+    event.ctrlKey && 78 == event.keyCode || //ctrl + N
+    event.shiftKey && 121 == event.keyCode || //shift + F10
+    event.altKey && 115 == event.keyCode || //alt + F4
+    "A" == event.srcElement.tagName && event.shiftKey) || (event.returnValue = false) //shift + 点击a标签
+    ;
+  });
+}
+```
 
-  if (params) {
-    url += "?";
-    Object.keys(params).forEach(function (param) {
-      if (params.hasOwnProperty(param)) {
-        if (Array.isArray(params[param])) {
-          params[param].forEach(function (el) {
-            url += "".concat(param, "[]=").concat(el, "&");
-          });
-        } else if (params[param] !== undefined) {
-          url += "".concat(param, "=").concat(params[param], "&");
-        }
-      }
-    });
-  }
+### downloadImage
+```javascript
+function downloadImage(url) {
+  var _$exec = /\/(.*?)(\?|$)/g.exec(url),
+      _$exec2 = _slicedToArray(_$exec, 2),
+      filename = _$exec2[1];
 
-  if (isImage) {
-    var _$exec = /\/(.*?)(\?|$)/g.exec(url),
-        _$exec2 = _slicedToArray(_$exec, 2),
-        filename = _$exec2[1];
+  var a = document.createElement("a");
+  a.href = url;
+  a.download = filename || true;
+  a.target = "_blank";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+```
 
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = filename || true;
-    a.target = "_blank";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  } else {
-    window.open(url);
-  }
+### exitFullScreen
+```javascript
+function exitFullScreen() {
+  var elem = document.body;
+  elem.webkitCancelFullScreen ? elem.webkitCancelFullScreen() : elem.mozCancelFullScreen ? elem.mozCancelFullScreen() : elem.cancelFullScreen ? elem.cancelFullScreen() : elem.msExitFullscreen ? elem.msExitFullscreen() : elem.exitFullscreen ? elem.exitFullscreen() : alert("切换失败,可尝试Esc退出");
 }
 ```
 
@@ -156,6 +164,40 @@ function flatDeep(arr) {
   return arr.reduce(function (pre, val) {
     return pre.concat(Array.isArray(val) ? flatDeep(val) : val);
   }, []);
+}
+```
+
+### getExplorerInfo
+```javascript
+function getExplorerInfo() {
+  var t = navigator.userAgent.toLowerCase();
+  return 0 <= t.indexOf("msie") ? {
+    //ie < 11
+    type: "IE",
+    version: Number(t.match(/msie ([\d]+)/)[1])
+  } : !!t.match(/trident\/.+?rv:(([\d.]+))/) ? {
+    // ie 11
+    type: "IE",
+    version: 11
+  } : 0 <= t.indexOf("edge") ? {
+    type: "Edge",
+    version: Number(t.match(/edge\/([\d]+)/)[1])
+  } : 0 <= t.indexOf("firefox") ? {
+    type: "Firefox",
+    version: Number(t.match(/firefox\/([\d]+)/)[1])
+  } : 0 <= t.indexOf("chrome") ? {
+    type: "Chrome",
+    version: Number(t.match(/chrome\/([\d]+)/)[1])
+  } : 0 <= t.indexOf("opera") ? {
+    type: "Opera",
+    version: Number(t.match(/opera.([\d]+)/)[1])
+  } : 0 <= t.indexOf("Safari") ? {
+    type: "Safari",
+    version: Number(t.match(/version\/([\d]+)/)[1])
+  } : {
+    type: t,
+    version: -1
+  };
 }
 ```
 
@@ -178,6 +220,13 @@ function getQueryValueByName(name) {
 }
 ```
 
+### getRawType
+```javascript
+function getRawType(value) {
+  return Object.prototype.toString.call(value).slice(8, -1);
+}
+```
+
 ### hyphenate
 ```javascript
 function hyphenate(str) {
@@ -189,18 +238,22 @@ function hyphenate(str) {
 ### isArray
 ```javascript
 function isArray(arg) {
-  if (typeof Array.isArray === "undefined") {
-    return Object.prototype.toString.call(arg) === "[object Array]";
-  }
-
+  Array.isArray = Array.isArray || Object.prototype.toString.call(arg) === "[object Array]";
   return Array.isArray(arg);
 }
 ```
 
-### isExternal
+### isDate
 ```javascript
-function isExternal(path) {
-  return /^(https?:|mailto:|tel:)/.test(path);
+function isDate(value) {
+  return Object.prototype.toString.call(value) === "[object Date]";
+}
+```
+
+### isFunction
+```javascript
+function isFunction(value) {
+  return Object.prototype.toString.call(value) === "[object Function]";
 }
 ```
 
@@ -213,6 +266,22 @@ function isObject(value) {
 }
 ```
 
+### isPCBroswer
+```javascript
+function isPCBroswer() {
+  var e = navigator.userAgent.toLowerCase(),
+      t = "ipad" == e.match(/ipad/i),
+      i = "iphone" == e.match(/iphone/i),
+      r = "midp" == e.match(/midp/i),
+      n = "rv:1.2.3.4" == e.match(/rv:1.2.3.4/i),
+      a = "ucweb" == e.match(/ucweb/i),
+      o = "android" == e.match(/android/i),
+      s = "windows ce" == e.match(/windows ce/i),
+      l = "windows mobile" == e.match(/windows mobile/i);
+  return !(t || i || r || n || a || o || s || l);
+}
+```
+
 ### isPlainObject
 ```javascript
 function isPlainObject(obj) {
@@ -220,36 +289,39 @@ function isPlainObject(obj) {
 }
 ```
 
-### numberFormatter
+### isRegExp
 ```javascript
-function numberFormatter(num, digits) {
-  var si = [{
-    value: 1e18,
-    symbol: "E"
-  }, {
-    value: 1e15,
-    symbol: "P"
-  }, {
-    value: 1e12,
-    symbol: "T"
-  }, {
-    value: 1e9,
-    symbol: "G"
-  }, {
-    value: 1e6,
-    symbol: "M"
-  }, {
-    value: 1e3,
-    symbol: "k"
-  }];
+function isRegExp(value) {
+  return Object.prototype.toString.call(value) === "[object RegExp]";
+}
+```
 
-  for (var i = 0; i < si.length; i++) {
-    if (num >= si[i].value) {
-      return (num / si[i].value + 0.1).toFixed(digits).replace(/\.0+$|(\.[0-9]*[1-9])0+$/, "$1") + si[i].symbol;
-    }
-  }
+### max
+```javascript
+function max(arr) {
+  arr = arr.filter(function (item) {
+    return !_isNaN(item);
+  });
+  return arr.length ? Math.max.apply(null, arr) : undefined;
+}
+```
 
-  return num.toString();
+### min
+```javascript
+function min(arr) {
+  arr = arr.filter(function (item) {
+    return !_isNaN(item);
+  });
+  return arr.length ? Math.min.apply(null, arr) : undefined;
+}
+```
+
+### random
+```javascript
+function random(lower, upper) {
+  lower = +lower || 0;
+  upper = +upper || 0;
+  return Math.random() * (upper - lower) + lower;
 }
 ```
 
@@ -276,11 +348,19 @@ function timeView(val) {
     return Math.floor(result / hour) + "小时前";
   } else if (result / day > 1 && result / day < 7) {
     return Math.floor(result / day) + "天前";
-  } else if (dateFormater('YYYY', now) === dateFormater(timeStamp, 'YYYY')) {
+  } else if (dateFormater("YYYY", now) === dateFormater("YYYY", timeStamp)) {
     return dateFormater("MM月DD日", timeStamp);
   } else {
     return dateFormater("YYYY年MM月DD日", timeStamp);
   }
+}
+```
+
+### toFullScreen
+```javascript
+function toFullScreen() {
+  var elem = document.body;
+  elem.webkitRequestFullScreen ? elem.webkitRequestFullScreen() : elem.mozRequestFullScreen ? elem.mozRequestFullScreen() : elem.msRequestFullscreen ? elem.msRequestFullscreen() : elem.requestFullScreen ? elem.requestFullScreen() : alert("浏览器不支持全屏");
 }
 ```
 

@@ -18,7 +18,7 @@ let content = `# common-utils ${badges.join(' ')}
 
 ## :rocket:图形界面
 
-https://lq782655835.github.io/common-utils/example/
+https://lq782655835.github.io/common-utils
 
 ## npm插件
 

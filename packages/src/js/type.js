@@ -20,25 +20,45 @@
  * 判断数据是不是引用类型的数据
  * (例如： arrays, functions, objects, regexes, new Number(0),以及 new String(''))
  */
-export const isObject = value => {
+export function isObject(value) {
   let type = typeof value;
   return value != null && (type == "object" || type == "function");
-};
+}
 
 /**
  * 判断数据是不是Object类型的数据
  */
-export const isPlainObject = obj => {
+export function isPlainObject(obj) {
   return Object.prototype.toString.call(obj) === "[object Object]";
-};
+}
 
 /**
+ * 是否是数组
  * @param {Array} arg
  * @returns {Boolean}
  */
 export function isArray(arg) {
-  if (typeof Array.isArray === "undefined") {
-    return Object.prototype.toString.call(arg) === "[object Array]";
-  }
+  Array.isArray =
+    Array.isArray || Object.prototype.toString.call(arg) === "[object Array]";
   return Array.isArray(arg);
+}
+
+// 获取数据类型，返回结果为 Number、String、Object、Array等
+export function getRawType(value) {
+  return Object.prototype.toString.call(value).slice(8, -1);
+}
+
+// 判断数据是不是时间对象
+export function isDate(value) {
+  return Object.prototype.toString.call(value) === "[object Date]";
+}
+
+// 判断数据是不是正则对象
+export function isRegExp(value) {
+  return Object.prototype.toString.call(value) === "[object RegExp]";
+}
+
+// 判断数据是不是函数
+export function isFunction(value) {
+  return Object.prototype.toString.call(value) === "[object Function]";
 }

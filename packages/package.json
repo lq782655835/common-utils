@@ -8,7 +8,6 @@
   "scripts": {
     "dev": "rollup -c --watch",
     "build": "rollup -c",
-    "demo": "node scripts/demo.js",
     "test": "jest",
     "format": "prettier --write \"./src/**/*.{js,ts,vue,json}\""
   },

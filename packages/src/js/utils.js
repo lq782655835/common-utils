@@ -2,14 +2,14 @@
  * 浏览器复制
  * @param {*} value 要复制的值
  */
-export const copyData = value => {
+export function copyData(value) {
   const inputDom = document.createElement("input");
   inputDom.value = value;
   document.body.appendChild(inputDom);
   inputDom.select(); // 选择对象
   document.execCommand("Copy"); // 执行浏览器复制命令
   document.body.removeChild(inputDom); // 删除DOM
-};
+}
 
 /**
  * This is just a simple version of deep copy
@@ -33,7 +33,7 @@ export function deepClone(source) {
   return targetObj;
 }
 
-// 深度优先算法 - 递归
+// 展平
 export function flatDeep(arr) {
   return arr.reduce(
     (pre, val) => pre.concat(Array.isArray(val) ? flatDeep(val) : val),

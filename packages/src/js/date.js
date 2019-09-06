@@ -41,9 +41,7 @@ export function timeView(val) {
     return Math.floor(result / hour) + "小时前";
   } else if (result / day > 1 && result / day < 7) {
     return Math.floor(result / day) + "天前";
-  } else if (
-    dateFormater('YYYY', now) === dateFormater(timeStamp, 'YYYY')
-  ) {
+  } else if (dateFormater("YYYY", now) === dateFormater("YYYY", timeStamp)) {
     return dateFormater("MM月DD日", timeStamp);
   } else {
     return dateFormater("YYYY年MM月DD日", timeStamp);

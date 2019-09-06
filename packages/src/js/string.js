@@ -3,12 +3,12 @@
  * @param {*} str
  * example: camelize('ab-cd-ef') // abCdEf
  */
-export const camelize = str => {
+export function camelize(str) {
   let camelizeRE = /-(\w)/g;
   return str.replace(camelizeRE, function($0, $1) {
     return $1 ? $1.toUpperCase() : "";
   });
-};
+}
 
 /**
  * 驼峰转横线命名
@@ -21,7 +21,7 @@ export function hyphenate(str) {
 }
 
 /**
- * Upper case first char
+ * 首字母大写
  * @param {String} string
  */
 export function uppercaseFirst(string) {
