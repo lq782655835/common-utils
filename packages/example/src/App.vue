@@ -12,15 +12,17 @@
           <h2>{{title}}</h2>
           输入参数：<el-input v-model="list[index].value" :disabled="list[index].disabled"></el-input>
           <el-button type="primary" @click="exec(fn, index)">{{fn}}</el-button>
-          <el-button type="primary" @click="copy(fn)">拷贝函数</el-button>
           <br>
           <template v-if="list[index].result">
             输出结果：<span>{{list[index].result}}</span>
           </template>
-          <pre>
+          <pre class="code-container">
             <code class="javascript">
               {{list[index].code}}
             </code>
+            <el-tooltip class="code-btn copy" effect="dark" content="拷贝" placement="top">
+              <i class="el-icon-document" @click="copy(fn)"></i>
+            </el-tooltip>
           </pre>
         </li>
       </ul>
@@ -67,7 +69,7 @@ export default {
     },
     copy(fnName) {
       CommonUtils.copyData(CommonUtils[fnName].toString())
-      this.$message.success('拷贝函数成功')
+      this.$message.success('复制成功')
     }
   }
 }
@@ -109,7 +111,19 @@ li {
     margin-top: 10px;
 }
 
+.code-container{
+  position: relative;
+}
 .javascript > .hljs-function:first-child {
   margin-left: -92px;
+}
+.code-container .code-btn {
+  position: absolute;
+  top: 24px;
+  cursor: pointer;
+}
+
+.code-container .code-btn.copy {
+  right: 10px;
 }
 </style>
