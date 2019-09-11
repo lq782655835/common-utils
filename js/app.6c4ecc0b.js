@@ -309,16 +309,16 @@ var es7_promise_finally = __webpack_require__("097d");
 // EXTERNAL MODULE: ./node_modules/vue/dist/vue.runtime.esm.js
 var vue_runtime_esm = __webpack_require__("2b0e");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7df1fffb-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/App.vue?vue&type=template&id=17373125&
-var Appvue_type_template_id_17373125_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_vm._m(0),_c('section',{staticClass:"list"},[_c('ul',{staticClass:"list"},_vm._l((_vm.mapping),function(ref,index){
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"7df1fffb-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/App.vue?vue&type=template&id=05f78146&
+var Appvue_type_template_id_05f78146_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{attrs:{"id":"app"}},[_vm._m(0),_c('section',{staticClass:"list"},[_c('ul',{staticClass:"list"},_vm._l((_vm.mapping),function(ref,index){
 var fn = ref.fn;
 var title = ref.title;
 var example = ref.example;
-return _c('li',{key:fn},[_c('i',{staticClass:"border"}),_c('h2',[_vm._v(_vm._s(title))]),_vm._v("\n        输入参数："),_c('el-input',{attrs:{"disabled":_vm.list[index].disabled},model:{value:(_vm.list[index].value),callback:function ($$v) {_vm.$set(_vm.list[index], "value", $$v)},expression:"list[index].value"}}),_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){return _vm.exec(fn, index)}}},[_vm._v(_vm._s(fn))]),_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){return _vm.copy(fn)}}},[_vm._v("拷贝函数")]),_c('br'),(_vm.list[index].result)?[_vm._v("\n          输出结果："),_c('span',[_vm._v(_vm._s(_vm.list[index].result))])]:_vm._e(),_c('pre',[_vm._v("          "),_c('code',{staticClass:"javascript"},[_vm._v("\n            "+_vm._s(_vm.list[index].code)+"\n          ")]),_vm._v("\n        ")])],2)}),0)])])}
+return _c('li',{key:fn},[_c('i',{staticClass:"border"}),_c('h2',[_vm._v(_vm._s(title))]),_vm._v("\n        输入参数："),_c('el-input',{attrs:{"disabled":_vm.list[index].disabled},model:{value:(_vm.list[index].value),callback:function ($$v) {_vm.$set(_vm.list[index], "value", $$v)},expression:"list[index].value"}}),_c('el-button',{attrs:{"type":"primary"},on:{"click":function($event){return _vm.exec(fn, index)}}},[_vm._v(_vm._s(fn))]),_c('br'),(_vm.list[index].result)?[_vm._v("\n          输出结果："),_c('span',[_vm._v(_vm._s(_vm.list[index].result))])]:_vm._e(),_c('pre',{staticClass:"code-container"},[_vm._v("          "),_c('code',{staticClass:"javascript"},[_vm._v("\n            "+_vm._s(_vm.list[index].code)+"\n          ")]),_vm._v("\n          "),_c('el-tooltip',{staticClass:"code-btn copy",attrs:{"effect":"dark","content":"拷贝","placement":"top"}},[_vm._v("\n            "),_c('i',{staticClass:"el-icon-document",on:{"click":function($event){return _vm.copy(fn)}}}),_vm._v("\n          ")]),_vm._v("\n        ")],1)],2)}),0)])])}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('header',[_c('img',{staticClass:"logo",attrs:{"src":__webpack_require__("8c42")}}),_c('h1',{staticClass:"title"},[_vm._v("常用函数大全")])])}]
 
 
-// CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=17373125&
+// CONCATENATED MODULE: ./src/App.vue?vue&type=template&id=05f78146&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.to-string.js
 var es6_regexp_to_string = __webpack_require__("6b54");
@@ -1023,6 +1023,8 @@ function _isNaN(v) {
 //
 //
 //
+//
+//
 
 
 highlight_default.a.registerLanguage('javascript', javascript_default.a);
@@ -1062,7 +1064,7 @@ highlight_default.a.registerLanguage('javascript', javascript_default.a);
     },
     copy: function copy(fnName) {
       copyData(common_utils_es_namespaceObject[fnName].toString());
-      this.$message.success('拷贝函数成功');
+      this.$message.success('复制成功');
     }
   }
 });
@@ -1085,7 +1087,7 @@ var componentNormalizer = __webpack_require__("2877");
 
 var component = Object(componentNormalizer["a" /* default */])(
   src_Appvue_type_script_lang_js_,
-  Appvue_type_template_id_17373125_render,
+  Appvue_type_template_id_05f78146_render,
   staticRenderFns,
   false,
   null,
@@ -1136,4 +1138,4 @@ module.exports = __webpack_require__.p + "img/vscode-logo.aea790b0.png";
 /***/ })
 
 /******/ });
-//# sourceMappingURL=app.20909f23.js.map
+//# sourceMappingURL=app.6c4ecc0b.js.map
