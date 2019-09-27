@@ -24,13 +24,13 @@ export function getQueryParam() {
  * @param {*} url
  */
 export function download(url) {
-  let iframe = document.getElementById('hiddenDownloader')
+  let iframe = document.getElementById("hiddenDownloader");
   if (iframe == null) {
-      iframe = document.createElement('iframe')
-      iframe.id = 'hiddenDownloader'
-      iframe.style.display = 'none'
-      document.body.appendChild(iframe)
+    iframe = document.createElement("iframe");
+    iframe.id = "hiddenDownloader";
+    iframe.style.display = "none";
+    document.body.appendChild(iframe);
   }
-  iframe.src = url
-  return false
+  iframe.src = url;
+  return false;
 }
