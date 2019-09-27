@@ -20,16 +20,17 @@ export function getQueryParam() {
 }
 
 /**
- * 通用图片下载
+ * 通用下载
  * @param {*} url
  */
-export function downloadImage(url) {
-  let [, filename] = /\/(.*?)(\?|$)/g.exec(url);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename || true;
-  a.target = "_blank";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+export function download(url) {
+  let iframe = document.getElementById('hiddenDownloader')
+  if (iframe == null) {
+      iframe = document.createElement('iframe')
+      iframe.id = 'hiddenDownloader'
+      iframe.style.display = 'none'
+      document.body.appendChild(iframe)
+  }
+  iframe.src = url
+  return false
 }
